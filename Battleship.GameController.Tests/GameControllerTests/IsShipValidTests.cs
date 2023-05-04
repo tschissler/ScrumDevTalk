@@ -37,5 +37,16 @@
 
             Assert.IsTrue(result);
         }
+
+        /// <summary>
+        /// The ship is valid.
+        /// </summary>
+        [TestMethod]
+        public void AddEmptyShipPosition()
+        {
+            var ship = new Ship { Name = "TestShip", Size = 3 };
+            var actual = ship.AddPosition("");
+            Assert.IsFalse(actual);
+        }
     }
 }

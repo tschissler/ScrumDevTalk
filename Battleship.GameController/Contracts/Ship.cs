@@ -57,16 +57,21 @@ namespace Battleship.GameController.Contracts
         /// <param name="input">
         /// The input.
         /// </param>
-        public void AddPosition(string input)
+        public bool AddPosition(string input)
         {
             if (Positions == null)
             {
                 Positions = new List<Position>();
             }
 
+            if (String.IsNullOrEmpty(input))
+                return false;
+             
             var letter = (Letters)Enum.Parse(typeof(Letters), input.ToUpper().Substring(0, 1));
             var number = int.Parse(input.Substring(1, 1));
             Positions.Add(new Position { Column = letter, Row = number });
+
+            return true;
         }
 
         public bool IsPlaced
