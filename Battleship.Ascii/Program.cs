@@ -19,7 +19,7 @@ namespace Battleship.Ascii
         static void Main()
         {
             telemetryClient = new ApplicationInsightsTelemetryClient();
-            telemetryClient.TrackEvent("ApplicationStarted", new Dictionary<string, string> { { "Technology", ".NET"} });
+            telemetryClient.TrackEvent("BattleshipStarted", new Dictionary<string, string> { { "Technology", ".NET"} });
 
             try
             {
@@ -54,7 +54,6 @@ namespace Battleship.Ascii
                 Console.WriteLine("Error details:");      
                 throw new Exception("Fatal error", e);
             }
-
         }
 
         private static void StartGame()
